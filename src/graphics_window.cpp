@@ -5,8 +5,7 @@
 #include <list>
 
 Graphics_Window::Graphics_Window(int _width, int _height)
-    : Window(_width, _height, "3D Projection"), quit(false),
-      texture("assets/textures/brick_wall_thick.txt"), myCube(),
+    : Window(_width, _height, "3D Projection"), quit(false), myCube(),
       myCubeAi(&myCube) {}
 
 bool Graphics_Window::onStart() {

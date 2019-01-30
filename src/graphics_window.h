@@ -61,7 +61,6 @@ private:
   double angleY = 0;
   double angleZ = 0;
   double yaw;
-  Texture texture;
   vec3d vCamera;
   vec3d vLookDirection;
   RubiksCube myCube;
