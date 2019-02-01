@@ -61,7 +61,6 @@ bool Graphics_Window::onUpdate(double timeElapsed) {
   vLookDirection = matRotateCamera.MultiplyMatrixVector(vTarget);
   vTarget = vCamera + vLookDirection;
   matrix4x4 matCamera = makePointAt(vCamera, vTarget, vUp);
-
   matrix4x4 matView = quickInverse(matCamera);
 
   std::vector<triangle> trianglesToRasterize;
@@ -99,7 +98,6 @@ bool Graphics_Window::onUpdate(double timeElapsed) {
             matView.MultiplyMatrixVector(triTransformed.vertices[i]);
 
       // depth clipping
-
       int numClippedTriangles = 0;
       triangle clipped[2];
       numClippedTriangles =
@@ -120,6 +118,7 @@ bool Graphics_Window::onUpdate(double timeElapsed) {
         vec3d vOffsetView = {1, 1, 0};
         for (int k = 0; k < 3; ++k)
           triProjected.vertices[k] = triProjected.vertices[k] + vOffsetView;
+
         for (int k = 0; k < 3; ++k) {
           triProjected.vertices[k].x *= 0.5f * (float)getWidth();
           triProjected.vertices[k].y *= 0.5f * (float)getHeight();
@@ -182,9 +181,9 @@ bool Graphics_Window::onUpdate(double timeElapsed) {
                      (int)tri.vertices[1].x, (int)tri.vertices[1].y,
                      (int)tri.vertices[2].x, (int)tri.vertices[2].y, tri.color);
 
-        drawTriangle((int)tri.vertices[0].x, (int)tri.vertices[0].y,
-                     (int)tri.vertices[1].x, (int)tri.vertices[1].y,
-                     (int)tri.vertices[2].x, (int)tri.vertices[2].y, BLACK);
+        // drawTriangle((int)tri.vertices[0].x, (int)tri.vertices[0].y,
+        //              (int)tri.vertices[1].x, (int)tri.vertices[1].y,
+        //              (int)tri.vertices[2].x, (int)tri.vertices[2].y, BLACK);
       } catch (std::exception e) {
       }
     }
