@@ -656,8 +656,7 @@ void Window::drawText() {
 
   for (auto text : textBlocks) {
     TTF_Font *font =
-        TTF_OpenFont("/Library/Fonts/Andale Mono.ttf",
-                     text.fontSize); // this opens a font style and sets a size
+        TTF_OpenFont("../dependencies/arial.ttf", text.fontSize); // this opens a font style and sets a size
     if (font == NULL) {
       throw std::runtime_error("font is null");
     }
